@@ -1,12 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace OpenMetricsPhp\Exposition\Text\Collections;
+namespace OpenMetrics\Exposition\Text\Collections;
 
 use Countable;
 use IteratorAggregate;
-use OpenMetricsPhp\Exposition\Text\Exceptions\InvalidArgumentException;
-use OpenMetricsPhp\Exposition\Text\Interfaces\ProvidesNamedValue;
-use OpenMetricsPhp\Exposition\Text\Types\Label;
+use OpenMetrics\Exposition\Text\Exceptions\InvalidArgumentException;
+use OpenMetrics\Exposition\Text\Interfaces\ProvidesNamedValue;
+use OpenMetrics\Exposition\Text\Types\Label;
+use Traversable;
 use function array_map;
 use function count;
 use function implode;
@@ -62,7 +63,7 @@ final class LabelCollection implements Countable, IteratorAggregate
 		}
 	}
 
-	public function getIterator() : iterable
+	public function getIterator() : Traversable
 	{
 		yield from $this->labels;
 	}
